@@ -66,3 +66,9 @@ body{
 .toggle-buttons input[type="radio"]{
   visibility:hidden;
 }
+
+#carouselButtons{
+    right: 0px;
+    position: absolute;
+    bottom: 0px;
+}
