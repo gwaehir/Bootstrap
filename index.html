@@ -156,30 +156,25 @@
         <div class="row row-content">
             <div class="col">
                 <div id="mycarousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner" role="list-box">
+                    <div class="carousel-inner" role="listbox">
                         <ol class="carousel-indicators">
                             <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#mycarousel" data-slide-to="1" class="active"></li>
-                            <li data-target="#mycarousel" data-slide-to="2" class="active"></li>
+                            <li data-target="#mycarousel" data-slide-to="1"></li>
+                            <li data-target="#mycarousel" data-slide-to="2"></li>
                         </ol>
                         <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon"></span>                        
                         </a>  
                         <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon"></span>                        
+                            <span class="carousel-control-next-icon"></span>
                         </a>
-                        <div class="btn-group" id="carouselButtons">
-                            <button class="btn btn-danger btn-sm" id="carousel-pause">
-                                <span class="fa fa-pause"></span>
-                            </button> 
-                            <button class="btn btn-danger btn-sm" id="carousel-play">
-                                <span class="fa fa-play"></span>
-                            </button>
-                        </div>
+                        <button class="btn btn-danger btn-sm" id="carousel-button">
+                            <span class="fa fa-pause"></span>
+                        </button> 
                         <div class="carousel-item active">
                             <img class="d-block img-fluid" 
-                                 src="./img/img/uthappizza.png" alt="Uthapizza">
-                            <div class=" carousel-caption d-none d-md-block">
+                                 src="./img/img/uthappizza.png" alt="Uthappizza">
+                            <div class="carousel-caption d-none d-md-block">
                                 <h2>Isenpizza <span class="badge badge-danger">HOT!</span> <span class="badge badge-pill badge-default">5,95.-</span></h2>
                                 <p class="d-none d-sm-block">A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
                             </div>
@@ -304,8 +299,6 @@
                                 </div>
                             </div>                  
                         </form>
-                           
-              
             </div>
         </div>
         
@@ -358,14 +351,19 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function(){
-            $("#mycarousel").carousel({interval: 2000});
-            $("#carousel-pause").click(function(){
-                $("#mycarousel").carousel('pause');
-                }); 
-            $("#carousel-play").click(function(){
-                $("#mycarousel").carousel('cycle');
+            $("#mycarousel").carousel({interval: 5000});
+           $("#carousel-button").click(function(){
+                if ($("#carousel-button").children("span").hasClass('fa-pause')) {
+                    $("#mycarousel").carousel('pause');
+                    $("#carousel-button").children("span").removeClass('fa-pause');
+                    $("#carousel-button").children("span").addClass('fa-play');
+                }
+                else if ($("#carousel-button").children("span").hasClass('fa-play')){
+                    $("#mycarousel").carousel('cycle');
+                    $("#carousel-button").children("span").removeClass('fa-play');
+                    $("#carousel-button").children("span").addClass('fa-pause');                    
+                }
             });
-            
         });
     </script>
 
