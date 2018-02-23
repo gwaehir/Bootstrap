@@ -50,4 +50,7 @@ body {
 #carousel-button {
   right: 0px;
   position: absolute;
-  bottom: 0px; }
+  bottom: 0;
+  z-index: 10; }
+  #carousel-button:hover {
+    cursor: pointer; }
